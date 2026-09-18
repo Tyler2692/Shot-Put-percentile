@@ -10,22 +10,30 @@ while True:
     gender = input("are you m or f?").lower()
 
     if gender == "m":
-        userinputX = input("Enter your mark: ")
-        user_value = float(userinputX)
+        while True:
+            userinputX = input("Enter your mark(meters): ")
+            try:
+                user_value = float(userinputX)
+                break
+            except ValueError:
+                print("Error: please enter a number.")
+
         data_series = Maledf["Mark"].dropna()
-        percentileX = stats.percentileofscore(
-            data_series, user_value, kind="weak"
-        )
+        percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
         print(f"Percentile Rank for Mark: {percentileX:.2f}%")
         break
 
     elif gender == "f":
-        userinputY = input("Enter your mark: ")
-        user_value = float(userinputY)
+        while True:
+            userinputY = input("Enter your mark(meters): ")
+            try:
+                user_value = float(userinputY)
+                break
+            except ValueError:
+                print("Error: please enter a number.")
+                
         data_series = Femaledf["Mark"].dropna()
-        percentileX = stats.percentileofscore(
-            data_series, user_value, kind="weak"
-        )
+        percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
         print(f"Percentile Rank for Mark: {percentileX:.2f}%")
         break
 
