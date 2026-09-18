@@ -1,15 +1,22 @@
 import pandas as pd
 from scipy import stats
 
-df = pd.read_csv("shot-put men.csv")
+Maledf = pd.read_csv("shot-put men.csv")
+Femaledf = pd.read_csv("shot-put women.csv")
 
 MarkMen = "Mark"
 
-userinputX = input('Enter you mark: ')
-user_value = float(userinputX)
+gender = input("are you m or f?")
+if gender == "m":
+    userinputX = input('Enter you mark: ')
+    user_value = float(userinputX)
+    data_series = Maledf["Mark"].dropna()
+    percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
+    print(f"Percentile Rank for Mark: {percentileX:.2f}%")
 
-data_series = df["Mark"].dropna()
-
-percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
-
-print(f"Percentile Rank for Mark: {percentileX:.2f}%")
+if gender == "f":
+    userinputY = input('Enter you mark: ')
+    user_value = float(userinputY)
+    data_series = Femaledf["Mark"].dropna()
+    percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
+    print(f"Percentile Rank for Mark: {percentileX:.2f}%")
