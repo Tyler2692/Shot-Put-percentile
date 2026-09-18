@@ -6,17 +6,28 @@ Femaledf = pd.read_csv("shot-put women.csv")
 
 MarkMen = "Mark"
 
-gender = input("are you m or f?")
-if gender == "m":
-    userinputX = input('Enter you mark: ')
-    user_value = float(userinputX)
-    data_series = Maledf["Mark"].dropna()
-    percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
-    print(f"Percentile Rank for Mark: {percentileX:.2f}%")
+while True:
+    gender = input("are you m or f?").lower()
 
-if gender == "f":
-    userinputY = input('Enter you mark: ')
-    user_value = float(userinputY)
-    data_series = Femaledf["Mark"].dropna()
-    percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
-    print(f"Percentile Rank for Mark: {percentileX:.2f}%")
+    if gender == "m":
+        userinputX = input("Enter your mark: ")
+        user_value = float(userinputX)
+        data_series = Maledf["Mark"].dropna()
+        percentileX = stats.percentileofscore(
+            data_series, user_value, kind="weak"
+        )
+        print(f"Percentile Rank for Mark: {percentileX:.2f}%")
+        break
+
+    elif gender == "f":
+        userinputY = input("Enter your mark: ")
+        user_value = float(userinputY)
+        data_series = Femaledf["Mark"].dropna()
+        percentileX = stats.percentileofscore(
+            data_series, user_value, kind="weak"
+        )
+        print(f"Percentile Rank for Mark: {percentileX:.2f}%")
+        break
+
+    else:
+        print("Invalid input. Please enter 'm' or 'f'")
