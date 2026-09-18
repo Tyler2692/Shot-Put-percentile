@@ -18,8 +18,8 @@ while True:
             except ValueError:
                 print("Error: please enter a number.")
 
-        data_series = Maledf["Mark"]
-        percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
+        rowdata = Maledf["Mark"]
+        percentileX = stats.percentileofscore(rowdata, user_value, kind="weak")
         print(f"Percentile Rank for Mark: {percentileX:.2f}%")
         break
 
@@ -32,8 +32,8 @@ while True:
             except ValueError:
                 print("Error: please enter a number.")
                 
-        data_series = Femaledf["Mark"]
-        percentileX = stats.percentileofscore(data_series, user_value, kind="weak")
+        rowdata = Femaledf["Mark"]
+        percentileX = stats.percentileofscore(rowdata, user_value, kind="weak")
         print(f"Percentile Rank for Mark: {percentileX:.2f}%")
         break
 
