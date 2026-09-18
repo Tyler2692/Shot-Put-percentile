@@ -6,12 +6,14 @@ Femaledf = pd.read_csv("shot-put women.csv")
 
 MarkMen = "Mark"
 
+print("Welcome! this program allows you to find your pecentile for your measured distance in shot-put in a database of about 23,000 people.")
+
 while True:
     gender = input("are you m or f?").lower()
 
     if gender == "m":
         while True:
-            userinputX = input("Enter your mark(meters): ")
+            userinputX = input("Enter your mark/distance(meters): ")
             try:
                 user_value = float(userinputX)
                 break
@@ -25,7 +27,7 @@ while True:
 
     elif gender == "f":
         while True:
-            userinputY = input("Enter your mark(meters): ")
+            userinputY = input("Enter your mark/distance(meters): ")
             try:
                 user_value = float(userinputY)
                 break
